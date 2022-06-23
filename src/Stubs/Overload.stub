@@ -1,0 +1,25 @@
+<?php
+
+namespace {{namespace}};
+
+trait {{className}}
+{
+    function {{method}}(...$args) 
+    {
+        switch(func_num_args())
+        {
+        /** Example
+            case 0:
+                echo 'no arguments';
+                break;
+            case 1:
+                echo $args[0];
+                break;
+	        case 2:
+		        [0 => $param1, 1 => $param2] = $args;
+                echo "$param1, $param2";
+                break;
+	    */
+        }
+    }
+}

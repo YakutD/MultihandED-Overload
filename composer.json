@@ -1,0 +1,28 @@
+{
+    "name": "multihanded/overload",
+    "description": "An Artisan command that simplifies the process of creating trait-based method overloads by the number of arguments.",
+    "type": "library",
+    "version": "1.0.0",
+    "require": {
+        "php": ">=7.2.0",
+        "touhidurabir/laravel-stub-generator": "1.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MultihandED\\Overload\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MultihandED\\Overload\\Providers\\OverloadServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "MultihandED"
+        }
+    ]
+}
