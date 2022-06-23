@@ -31,6 +31,7 @@ class OverloadRule implements Rule
     {
         $segments = explode('\\', $value);
 
+        //? First, the user needs to make sure that he enters the parameters correctly in order to avoid possible misunderstandings.
         foreach($segments as $key => $segment)
         {
             if(!preg_match(self::FUNCTION_NAME, $segment))
@@ -47,7 +48,6 @@ class OverloadRule implements Rule
             }
         }
 
-        //? First need to make sure that the user enters the parameters correctly
         if(count($segments) == 1)
         {
             $this->message = 'To avoid unplanned overwriting of trait files, use more than one segment in the namespace';
