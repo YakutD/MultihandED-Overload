@@ -29,21 +29,7 @@ class OverloadRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        if(Overload::checkTraitExist($value))
-        {
-            $this->message = 'Such a trait already exists in the given namespace';
-            
-            return false;
-        }
-
         $segments = explode('\\', $value);
-
-        if(count($segments) == 1)
-        {
-            $this->message = 'To avoid unplanned overwriting of trait files, use more than one segment in the namespace';
-
-            return false;
-        }
 
         foreach($segments as $key => $segment)
         {
@@ -59,6 +45,21 @@ class OverloadRule implements Rule
 
                 return false;
             }
+        }
+
+        //? First need to make sure that the user enters the parameters correctly
+        if(count($segments) == 1)
+        {
+            $this->message = 'To avoid unplanned overwriting of trait files, use more than one segment in the namespace';
+
+            return false;
+        }
+
+        if(Overload::checkTraitExist($value))
+        {
+            $this->message = 'Such a trait already exists in the given namespace';
+            
+            return false;
         }
 
         return true;
